@@ -12,14 +12,14 @@
                 <!-- Single Catagory -->
                 {% for product in products %}
                 <div class="single-products-catagory clearfix">
-                    <a href="{{ path('app_products', {'slug' : product.slug}) }}"><img
+                    <a href="{{ path('app_product', {'slug' : product.slug}) }}"><img
                             src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a>
                         <!-- Hover Content -->
                         <div class="hover-content">
                             <div class="line">
                             </div>
-                            <p></p>
                             <h4>{{product.name}}</h4>
+                            <span id="price">{{ (product.price / 100)|number_format(2, ',')}} €</span>
                         </div>
                     </a>
                 </div>
