@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits - Gayou3pomm{% endblock %}
+
+{% block content %}
+
+
+
+<div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+
+                <!-- Single Catagory -->
+                {% for product in products %}
+                <div class="single-products-catagory clearfix">
+                    <a href="{{ path('app_products', {'slug' : product.slug}) }}"><img
+                            src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid"></a>
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line">
+                            </div>
+                            <p></p>
+                            <h4>{{product.name}}</h4>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+             </div>
+
+ </div>
+ 
+{% endblock %}
