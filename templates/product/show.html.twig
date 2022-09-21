@@ -11,8 +11,8 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mt-50">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Boutique</a></li>
+                                <li class="breadcrumb-item"><a href="{{path('app_home')}}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{path('app_products')}}">Boutique</a></li>
                                 {# <li class="breadcrumb-item"><a href="#">Chairs</a></li> #}
                                 <li class="breadcrumb-item active" aria-current="page">{{product.name}}</li>
                             </ol>
@@ -24,7 +24,7 @@
                     <div class="col-12 col-lg-7">
                         <div class="single_product_thumb">
                             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
+                                {# <ol class="carousel-indicators">
                                     <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url(img/product-img/pro-big-1.jpg);">
                                     </li>
                                     <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url(img/product-img/pro-big-2.jpg);">
@@ -33,7 +33,7 @@
                                     </li>
                                     <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url(img/product-img/pro-big-4.jpg);">
                                     </li>
-                                </ol>
+                                </ol> #}
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
@@ -41,7 +41,7 @@
                             src="/uploads/{{product.illustration}}" alt="{{product.name}}" class="img-fluid">
                                         </a>
                                     </div>
-                                    <div class="carousel-item">
+                                    {# <div class="carousel-item">
                                         <a class="gallery_img" href="img/product-img/pro-big-2.jpg">
                                             <img class="d-block w-100" src="img/product-img/pro-big-2.jpg" alt="Second slide">
                                         </a>
@@ -55,7 +55,7 @@
                                         <a class="gallery_img" href="img/product-img/pro-big-4.jpg">
                                             <img class="d-block w-100" src="img/product-img/pro-big-4.jpg" alt="Fourth slide">
                                         </a>
-                                    </div>
+                                    </div> #}
                                 </div>
                             </div>
                         </div>
@@ -93,14 +93,16 @@
                             <!-- Add to Cart Form -->
                             <form class="cart clearfix" method="post">
                                 <div class="cart-btn d-flex mb-50">
-                                    <p>Qty</p>
+                                    <!-- <p>Qty</p>
                                     <div class="quantity">
                                         <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
                                         <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
                                         <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
+                                <a href="{{path('add_to_cart', {'id':product.id})}}" class="btn amado-btn">Ajouter au panier</a>
+
+                                
                             </form>
 
                         </div>

@@ -840,9 +840,13 @@ img {
               height: 80px; } }
           @media only screen and (max-width: 767px) {
             .main-content-wrapper .single-product-area .single_product_thumb .carousel-indicators li {
-              height: 70px; } }
+              height: 70px; } 
+            }
           .main-content-wrapper .single-product-area .single_product_thumb .carousel-indicators li.active {
-            border: 2px solid #fbb710; }
+
+            /* la bordure du carousel dans le show :D */
+            /* border: 2px solid #fbb710;  */
+          }
       .main-content-wrapper .single-product-area .single_product_thumb .carousel-item a {
         cursor: zoom-in; }
     .main-content-wrapper .single-product-area .single_product_desc {

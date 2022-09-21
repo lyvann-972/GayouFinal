@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier - Gayou3pomm{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Mon Panier</h1>
+
+<p>Retrouvez l'emsemble des produits que vous avez ajouté à votre panier.<p>
+
+<br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Produit</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for product in cartComplete %}
+      <tr>
+      
+        <th>{{product.product.name}}</th>
+        <td> x {{product.quantity}}</td>
+        <td>{{(product.product.price / 100) | number_format(2,',')}}€</td>
+        <td>{{((product.product.price) * (product.quantity) / 100) | number_format(2,',')}}€</td>
+        
+      </tr>
+        {% endfor %}
+     
+    </tbody>
+  </table>
+
+
+</div>
+
+
+{% endblock %}
