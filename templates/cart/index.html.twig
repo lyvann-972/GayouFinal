@@ -10,30 +10,72 @@
 <p>Retrouvez l'emsemble des produits que vous avez ajouté à votre panier.<p>
 
 <br>
-
-<table class="table">
+{% if cartComplete|length > 0 %}
+<table class="table mt-2"">
     <thead>
       <tr>
         <th scope="col">Produit</th>
+        <th scope="col"></th>
         <th scope="col">Quantité</th>
         <th scope="col">Prix</th>
         <th scope="col">Total</th>
+        <th scope="col"></th>
+
+
       </tr>
     </thead>
     <tbody>
+        {% set total = null %}
         {% for product in cartComplete %}
       <tr>
       
-        <th>{{product.product.name}}</th>
-        <td> x {{product.quantity}}</td>
+        <th>
+          <img class="cart-image"  src="/uploads/{{product.product.illustration}}" alt="{{product.product.name}}"><br>
+        </th>
+        <td>
+          {{product.product.name}}<br>
+          <small>{{product.product.subtitle}}</small>
+
+        </td>
+        <td> 
+          <a href="{{path('decrease_to_cart', {'id':product.product.id})}}">
+            <img  class="cart-icon" src="{{asset('assets/img/core-img/minus-sign.png')}}" alt=" Dimminuer mon produit ">
+          </a>
+
+          x {{product.quantity}}
+
+          <a href="{{path('add_to_cart', {'id':product.product.id})}}">
+            <img  class="cart-icon" src="{{asset('assets/img/core-img/plus-sign.png')}}" alt=" Augmenter mon produit ">
+          </a>
+
+        </td>
         <td>{{(product.product.price / 100) | number_format(2,',')}}€</td>
         <td>{{((product.product.price) * (product.quantity) / 100) | number_format(2,',')}}€</td>
+        <td>
+          <a href="{{path('delete_my_cart', {'id':product.product.id})}}">
+            <img  class="cart-icon" src="{{asset('assets/img/core-img/delete.png')}}" alt="supprimer mon produit">
+          </a>
+        
+        </td>
+
         
       </tr>
+        {% set total = total +  (product.product.price * product.quantity)%}
         {% endfor %}
      
     </tbody>
   </table>
+
+  <div class="text-right">
+
+    <b>Nombre de produit :</b> {{cartComplete|length}}<br>
+    <b>Total de Mon panier :</b> {{(total / 100)|number_format(2, ',')}} €<br>
+    <a href=""class="btn btn-success btn block mt-3 mb-2">Valider mon panier</a>
+  </div>
+  {% else %}
+  <hr>
+    <p><b>Votre panier est vide.</b></p>
+  {% endif %}
 
 
 </div>

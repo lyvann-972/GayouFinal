@@ -1401,6 +1401,21 @@ img {
     border-radius: 0;
     background-color: #f5f7fa; }
 
+
+    .cart-image {
+
+      height: 80px;
+      border: solid goldenrod;
+      border-radius: 5px;
+      
+
+    }
+
+    .cart-icon {
+      
+      height: 22px;
+    }
+
 /* ##### The End ##### */
 
 /*# sourceMappingURL=core-style.css.map */
