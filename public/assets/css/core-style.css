@@ -1416,6 +1416,10 @@ img {
       height: 22px;
     }
 
+    .btn-info{
+      background-color:#e4b132 ;
+      border: #e4b132;
+    }
 /* ##### The End ##### */
 
 /*# sourceMappingURL=core-style.css.map */
