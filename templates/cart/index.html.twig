@@ -11,7 +11,7 @@
 
 <br>
 {% if cartComplete|length > 0 %}
-<table class="table mt-2"">
+<table class="table mt-2">
     <thead>
       <tr>
         <th scope="col">Produit</th>
@@ -70,7 +70,7 @@
 
     <b>Nombre de produit :</b> {{cartComplete|length}}<br>
     <b>Total de Mon panier :</b> {{(total / 100)|number_format(2, ',')}} €<br>
-    <a href=""class="btn btn-success btn block mt-3 mb-2">Valider mon panier</a>
+    <a href="{{path('app_order')}}"class="btn btn-success btn block mt-3 mb-2">Valider mon panier</a>
   </div>
   {% else %}
   <hr>

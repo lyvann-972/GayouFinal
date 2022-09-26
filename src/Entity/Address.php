@@ -69,6 +69,11 @@ class Address
 
         return $this;
     }
+// Ajouuuuuuu
+    public function __toString()
+    {
+      return $this->getName().'[br]'.$this->getAddress().'[br]'.$this->getCity();
+    }
 
     public function getFirstname(): ?string
     {

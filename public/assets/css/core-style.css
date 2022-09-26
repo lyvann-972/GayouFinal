@@ -1420,6 +1420,34 @@ img {
       background-color:#e4b132 ;
       border: #e4b132;
     }
+
+    .block-small{
+     max-width: 500px; 
+     margin: auto;
+     padding-bottom: 10px;
+    }
+
+    .form-control{
+      margin-bottom: 10px;
+    }
+
+    .text-center a{
+    color: #e4b132;
+    font-size: medium;
+    }
+
+    .text-center  :hover{
+      text-transform: uppercase;
+      color: #20d34a;
+    } 
+    
+    
+    /* .form-check {
+      background-color: goldenrod;
+      opacity: 1.0;
+      border-radius: 10px;
+    } */
+
 /* ##### The End ##### */
 
 /*# sourceMappingURL=core-style.css.map */
