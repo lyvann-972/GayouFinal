@@ -38,6 +38,17 @@ class Order
 
     #[ORM\Column]
     private ?bool $isPaid = null;
+    
+    public function getTotal()
+    {
+        $total = null;
+
+        foreach ( $this->getOrderDetails()->getValues() as $product) {
+            $total = $total + ($product->getPrice() * $product->getQuantity());
+        }
+
+        return $total;
+    }
 
     public function __construct()
     {

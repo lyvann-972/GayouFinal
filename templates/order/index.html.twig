@@ -8,9 +8,11 @@
     <p>Choisissez vos préférences avant de passer votre commande sur La Boutique Française</p>
    
     {% set formHtml %}
-     {{form_start(form, {action:path('app_order_recap')})}}
+        {{form_start(form, {action:path('app_order_recap')})}}
+        {{form_label(form.addresses, 'Choisissez votre addresse de livraison')}}
+           <a href="{{path('app_account_address_add')}}">Ajouter une nouvelle adresse</a>
     {{form_end(form)}} 
-    {# {{ form(form) }} #}
+    
     {% endset %}
     {{formHtml|replace({'[br]':'<br>'})|raw}}
 
