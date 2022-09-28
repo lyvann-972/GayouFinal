@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StripeController extends AbstractController
 {
-    #[Route('/commande/create-session', name: 'app_stripe_create-session')]
+    #[Route('/commande/create-session', name: 'app_stripe_create_session')]
     
     
     public function index(Cart $cart): Response
@@ -54,7 +54,7 @@ class StripeController extends AbstractController
         
         ]);    
 
-        $response = new JsonResponse(['id' => $checkout_session->id]);
-        return $response;
+        // $response = new JsonResponse(['id' => $checkout_session->id]);
+        return $this->redirect($checkout_session->url);
     }
 }

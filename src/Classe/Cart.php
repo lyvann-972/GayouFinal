@@ -44,8 +44,9 @@ public function get(){
 }
 
 public function remove(){
-
+//  je lance une session 
         $session = $this -> requestStack->getSession();
+        // je suprimme ma session cart
         return $session->remove('cart');
 }
 
