@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 
+
 use App\Classe\Cart;
 use App\Entity\Order;
 use DateTimeImmutable;
@@ -89,6 +90,8 @@ class OrderController extends AbstractController
 
             $this->entityManager->persist($order);
 
+            
+
             foreach ($cart->getFull() as $product){
                 $orderDetails = new OrderDetails();
                 $orderDetails->setMyOrder($order);
@@ -96,18 +99,24 @@ class OrderController extends AbstractController
                 $orderDetails->setQuantity($product['quantity']);
                 $orderDetails->setPrice($product['product']->getPrice());
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']); 
-                
                 $this->entityManager->persist($orderDetails);
+
+                
             }
+            
 
-            $this->entityManager->flush();
+            // $this->entityManager->flush();
 
+            
             return $this->render('order/add.html.twig', [
             
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
                 'delivery' => $delivery_content,
             ]);
+
+
+            
 
 
         }
